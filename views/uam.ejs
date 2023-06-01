@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UAM</title>
+
+    <style>
+      body {
+        padding: 20px;
+        font-size: 14px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      table {
+        text-align: left;
+        border-collapse: collapse;
+        /* margin: 10px 0; */
+      }
+      .row-numbering {
+        width: 3%;
+      }
+      .system-checklist-activities-detail {
+        width: 61.5%;
+      }
+      .table-border {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 2.5px 5px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .img {
+        -webkit-filter: invert(100%);
+      }
+
+      .field-title {
+        width: 20%;
+        max-width: 20%;
+      }
+      .field-data {
+        width: 30%;
+        max-width: 30%;
+      }
+
+      .table-heading {
+        background-color: gainsboro;
+      }
+      .table-margin {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">Request Type / Action</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table-border">Create</td>
+          <td class="table-border">Modify</td>
+          <td class="table-border">Delete</td>
+          <td class="table-border">Deactive</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-border table-heading">
+          <th colspan="7"><h2 class="text-center">User Information</h2></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="field-title table-border">UAM No.</th>
+          <td colspan="5" class="field-data table-border">UAM-xxx-xxx</td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Date of Request</th>
+          <td colspan="2" class="field-data table-border">03/01/2022</td>
+          <th colspan="2" class="field-title table-border">Date of Joining / Leaving</th>
+          <td colspan="2" class="field-data table-border">03/01/2022</td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            Name of Employee (Service Requested For)
+          </th>
+          <td colspan="6" class="table-border" colspan="3" style="padding: 0px; margin: 0">
+            <table width="100%">
+              <tr style="border-bottom: 1px solid black">
+                <th>First Name</th>
+                <th style="border-left: 1px solid black">Last Name</th>
+              </tr>
+              <tr>
+                <td>Badal</td>
+                <td style="border-left: 1px solid black">Khatri</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">User ID (For APCER IT)</th>
+          <td colspan="2" class="table-border">u1</td>
+          <th colspan="2" class="field-title table-border">Email ID (For APCER IT)</th>
+          <td colspan="2" class="table-border">u1@apcer.com</td>
+        </tr>
+
+        <tr>
+          <th rowspan="2" class="field-title table-border">
+            Type of Access Required
+          </td>
+          <td colspan="3" class="table-border">Permenent</td>
+          <td colspan="3" class="table-border">Permenent</td>
+        </tr>
+        <tr>
+          <td colspan="6" class="table-border">
+            If Temporary, date of deactivtation _____________
+          </td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">Type of User/s</th>
+          <td colspan="2" class="table-border">
+            APCER USER <br />
+            APCER Client Emp <br />
+            Others _____________
+          </td>
+          <th colspan="2" class="field-title table-border">Designation</th>
+          <td colspan="2" class="table-border">Mngr</td>
+        </tr>
+
+        <tr>
+          <th  class="field-title table-border">User Location</th>
+          <td colspan="2" class="table-border">
+            APCER Delhi <br />
+            APCER Ahmedabad <br />
+            APCER UK <br />
+            APCER US <br />
+            Others _____________
+          </td>
+          <th colspan="2" class="field-title table-border">Department</th>
+          <td colspan="2" class="table-border">Sales</td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">
+            * Networking Services to be Granted / Revoked (* Strike Not
+            Applicable)
+          </th>
+          <td colspan="2" class="table-border">
+            Email Access <br />
+            Server Access <br />
+            Shared Drive / Folder Access <br />
+            APCER Network VPN Access <br />
+            Others _____________
+          </td>
+          <th colspan="2" class="field-title table-border">Reporting Manager Name</th>
+          <td colspan="2" class="table-border">Vishal</td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">
+            *Access to Distribution List(DL)?
+          </th>
+          <td colspan="6" class="table-border">Yes NO</td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">Comments (if any)</th>
+          <td colspan="6" class="table-border">
+            22/Nov/2021 is the last day for annapurna in the organization. hence
+            user window account, nw, access group, email and VPN access needs to
+            be removed
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">Access to Share Drives</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="table-border">Drive Name</th>
+          <th class="table-border">Folder Name/s</th>
+          <th class="table-border">Access Rights</th>
+          <th class="table-border">Grant / Revoke</th>
+        </tr>
+        <tr>
+          <td class="table-border"></td>
+          <td class="table-border">NA</td>
+          <td class="table-border">
+            Read Only <br />
+            Read / Write <br />
+          </td>
+          <td class="table-border">
+            Grant <br />
+            Revoke <br />
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">User System Data and Email ID Treatment</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="field-title table-border">User System Data</th>
+          <td colspan="3" class="table-border">
+            Not required | Arichive | Handover
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Data handover To</th>
+          <td class="table-border"></td>
+          <th class="field-title table-border">
+            End User Confirmation on receipt of data
+          </th>
+          <td class="table-border"></td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Email Mailbox Transferred</th>
+          <td class="table-border"></td>
+          <th class="field-title table-border">
+            End User Confirmation on activation of Mailbox
+          </th>
+          <td class="table-border"></td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Email ID Forwarded to*</th>
+          <td class="table-border">1</td>
+          <th rowspan="2" class="field-title table-border">
+            End User Confirmation on Email Forwarding
+          </th>
+          <td rowspan="2" class="table-border">1</td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            Date Till Email ID to remain Active
+          </th>
+          <td class="table-border">1</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">UAM Approvals</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="field-title table-border"></td>
+          <th class="table-border">Name</th>
+          <th class="table-border">Signature</th>
+          <th class="table-border">Approval Date (DD-MMM-YYYY)</th>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Requested By</th>
+          <td class="table-border"></td>
+          <td class="field-title table-border"></td>
+          <td class="table-border"></td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            Head of Department / Designee
+          </th>
+          <td class="table-border"></td>
+          <td class="table-border"></td>
+          <td class="table-border"></td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            IT Head / Designee (Mandatory in case of Email Forwarding)
+          </th>
+          <td class="table-border"></td>
+          <td class="table-border"></td>
+          <td class="table-border"></td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            DPO/Designee (Mandatory in case of Email Forwarding)
+          </th>
+          <td class="table-border"></td>
+          <td class="table-border"></td>
+          <td class="table-border"></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">For IT Department Use Only</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="field-title table-border">
+            Active Directory Account Deactivation Date
+          </th>
+          <td class="table-border"></td>
+          <th class="field-title table-border">
+            Active Directory Account Deletion Date
+          </th>
+          <td class="table-border"></td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Comments (if any)</th>
+          <td colspan="3" class="table-border"></td>
+        </tr>
+        <tr>
+          <td class="field-title table-border"></td>
+          <th class="table-border">Printed Name</th>
+          <th class="table-border">Signature</th>
+          <th class="table-border">Date (DD-MMM-YYYY)</th>
+        </tr>
+        <tr>
+          <th rowspan="2" class="field-title table-border">
+            Executed By (Server Administrator / Designee)
+          </th>
+          <td class="table-border">1</td>
+          <td class="table-border">1</td>
+          <td class="table-border">1</td>
+        </tr>
+        <tr>
+          <td class="table-border">2</td>
+          <td class="table-border">2</td>
+          <td class="table-border">2</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UAM</title>
+
+    <style>
+      body {
+        padding: 20px;
+        font-size: 14px;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+          'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      table {
+        text-align: left;
+        border-collapse: collapse;
+        /* margin: 10px 0; */
+      }
+      .row-numbering {
+        width: 3%;
+      }
+      .system-checklist-activities-detail {
+        width: 61.5%;
+      }
+      .table-border {
+        border: 1px solid black;
+      }
+      th,
+      td {
+        padding: 2.5px 5px;
+      }
+      .text-center {
+        text-align: center;
+      }
+      .img {
+        -webkit-filter: invert(100%);
+      }
+
+      .field-title {
+        width: 20%;
+        max-width: 20%;
+      }
+      .field-data {
+        width: 30%;
+        max-width: 30%;
+      }
+
+      .table-heading {
+        background-color: gainsboro;
+      }
+      .table-margin {
+        margin: 10px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">Request Type / Action</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table-border">
+            <% if(requestTypeAction === 'Create'){%>
+            <input type="checkbox" checked />
+            <%} else{ %>
+            <input type="checkbox" />
+            <%}%> Create
+          </td>
+          <td class="table-border">
+            <% if(requestTypeAction === 'Modify'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Modify
+          </td>
+          <td class="table-border">
+            <% if(requestTypeAction === 'Delete'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Delete
+          </td>
+          <td class="table-border">
+            <% if(requestTypeAction === 'Deactivate'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Deactive
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-border table-heading">
+          <th colspan="4"><h2 class="text-center">User Information</h2></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="field-title table-border">UAM No.</th>
+          <td colspan="3" class="field-data table-border">
+            <%=(typeof uamNumber !== 'undefined' ? uamNumber: '')%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Date of Request</th>
+          <td class="field-data table-border">
+            <%=formateDate(userInformation.dateOfRequest)%>
+          </td>
+          <th class="field-title table-border">Date of Joining / Leaving</th>
+          <td class="field-data table-border">
+            <%=formateDate(userInformation.dateOfJoiningLeaving)%>
+          </td>
+        </tr>
+
+        <!-- <tr>
+          <th class="field-title table-border">
+            Name of Employee (Service Requested For)
+          </th>
+          <td class="table-border" colspan="3" style="padding: 0px; margin: 0">
+            <table width="100%">
+              <tr style="border-bottom: 1px solid black">
+                <th>First Name</th>
+                <th style="border-left: 1px solid black">Last Name</th>
+              </tr>
+              <tr>
+                <td>
+                  <%=userInformation?.users && userInformation?.users.length ===
+                  1? userInformation?.users[0]?.firstName:''%>
+                </td>
+                <td style="border-left: 1px solid black">
+                  <%=userInformation?.users && userInformation?.users.length ===
+                  1?userInformation?.users[0]?.lastName:''%>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+      -->
+
+        <!--
+        <tr>
+          <th class="field-title table-border">User ID (For APCER IT)</th>
+          <td class="table-border">u1</td>
+          <th class="field-title table-border">Email ID (For APCER IT)</th>
+          <td class="table-border">u1@apcer.com</td>
+        </tr>
+        -->
+
+        <!--
+        <tr>
+          <th rowspan="2" class="field-title table-border">
+            Type of Access Required
+          </th>
+          <td colspan="3" class="table-border">
+            <% if(userInformation.typeOfAccessRequired === 'permanent'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Permenent
+            <span></span>
+            <% if(userInformation.typeOfAccessRequired === 'temporary'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Temporary
+          </td>
+        </tr>
+    -->
+
+        <!--
+        <tr>
+          <td colspan="3" class="table-border">
+            If Temporary, date of deactivtation
+            <u
+              ><%=(userInformation.ifTemporaryDateForDeactivation ?
+              formateDate(userInformation.ifTemporaryDateForDeactivation) :
+              '')%></u
+            >
+          </td>
+        </tr>
+        -->
+
+        <!--
+        <tr>
+          <th class="field-title table-border">Type of User/s</th>
+          <td class="table-border">
+            <% if(userInformation.typeOfUser === 'ApcerUser'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> APCER USER <br />
+
+            <% if(userInformation.typeOfUser === 'ApcerClientEmp'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> APCER Client Emp <br />
+
+            <% if(userInformation.typeOfUser === 'Other'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Others <u><%=userInformation.typeOfUserOtherText%></u>
+          </td>
+          <th class="field-title table-border">Designation</th>
+          <td class="table-border"><%=userInformation.designation%></td>
+        </tr>
+        -->
+        
+        <!--
+        <tr>
+          <th class="field-title table-border">User Location</th>
+          <td class="table-border"><%=userInformation.userLocation%></td>
+          <th class="field-title table-border">Department</th>
+          <td class="table-border"><%=userInformation.department%></td>
+        </tr>
+        -->
+        
+        <tr>
+          <th class="field-title table-border">
+            * Networking Services to be Granted / Revoked (* Strike Not
+            Applicable)
+          </th>
+          <td class="table-border">
+            <%
+            if(userInformation.networkServicesToBeGrantedRevoked.emailAccess){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Email Access <br />
+
+            <%
+            if(userInformation.networkServicesToBeGrantedRevoked.serverAccess){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Server Access <br />
+
+            <%
+            if(userInformation.networkServicesToBeGrantedRevoked['sharedDrive/folderAccess']){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Shared Drive / Folder Access <br />
+
+            <%
+            if(userInformation.networkServicesToBeGrantedRevoked.APCERNetworkVPNAccess){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> APCER Network VPN Access <br />
+
+            <% if(userInformation.networkServicesToBeGrantedRevoked.others){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Others _____________
+          </td>
+          <th class="field-title table-border">Reporting Manager Name</th>
+          <td class="table-border">
+            <%=userInformation.reportingManager && typeof
+            userInformation.reportingManager==='object' &&
+            `${userInformation.reportingManager.firstName}
+            ${userInformation.reportingManager.lastName}`%>
+          </td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">
+            *Access to Distribution List(DL)?
+          </th>
+          <td colspan="3" class="table-border">
+            <% if(userInformation.accessToDistributionList){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Yes
+            <span></span>
+            <% if(userInformation.accessToDistributionList){%>
+            <input type="checkbox" />
+            <%} else{%>
+            <input type="checkbox" checked />
+            <%}%> No
+          </td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">Comments (if any)</th>
+          <td colspan="3" class="table-border">
+            22/Nov/2021 is the last day for annapurna in the organization. hence
+            user window account, nw, access group, email and VPN access needs to
+            be removed
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">Access to Share Drives</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="table-border">Drive Name</th>
+          <th class="table-border">Folder Name/s</th>
+          <th class="table-border">Access Rights</th>
+          <th class="table-border">Grant / Revoke</th>
+        </tr>
+
+        <% accessToShareDrives.forEach(accessToShareDrive => { %>
+        <tr>
+          <td class="table-border"><%=accessToShareDrive.driveName%></td>
+          <td class="table-border"><%=accessToShareDrive.folderName%></td>
+          <td class="table-border">
+            <% if(accessToShareDrive.accessRights === 'ReadOnly'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Read Only <br />
+
+            <% if(accessToShareDrive.accessRights === 'ReadWrite'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Read / Write <br />
+          </td>
+          <td class="table-border">
+            <% if(accessToShareDrive.grantRevoke === 'Grant'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Grant <br />
+
+            <% if(accessToShareDrive.grantRevoke === 'Revoke'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Revoke <br />
+          </td>
+        </tr>
+        <% }); %>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">User System Data and Email ID Treatment</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="field-title table-border">User System Data</th>
+          <td colspan="3" class="table-border">
+            <% if(userSystemDataAndEmailIdTreatment.userSystemData ===
+            'NotRequired'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Not required
+            <span></span>
+
+            <% if(userSystemDataAndEmailIdTreatment.userSystemData ===
+            'Archive'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Archive
+            <span></span>
+
+            <% if(userSystemDataAndEmailIdTreatment.userSystemData ===
+            'Handover'){%>
+            <input type="checkbox" checked />
+            <%} else{%>
+            <input type="checkbox" />
+            <%}%> Handover
+            <span></span>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Data handover To</th>
+          <td class="table-border">
+            <%=userSystemDataAndEmailIdTreatment.dataHandOverTo%>
+          </td>
+          <th class="field-title table-border">
+            End User Confirmation on receipt of data
+          </th>
+          <td class="table-border">
+            <%=(userSystemDataAndEmailIdTreatment.endUserConfirmationOnReceiptOfData
+            ?
+            formateDate(userSystemDataAndEmailIdTreatment.endUserConfirmationOnReceiptOfData)
+            : '')%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Email Mailbox Transferred</th>
+          <td class="table-border">
+            <%=userSystemDataAndEmailIdTreatment.emailMailboxTransferredTo%>
+          </td>
+          <th class="field-title table-border">
+            End User Confirmation on activation of Mailbox
+          </th>
+          <td class="table-border">
+            <%=userSystemDataAndEmailIdTreatment.endUserConfirmationOnActivationOfMailbox%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Email ID Forwarded to*</th>
+          <td class="table-border">
+            <%=userSystemDataAndEmailIdTreatment.emailIdForwardedTo%>
+          </td>
+          <th rowspan="2" class="field-title table-border">
+            End User Confirmation on Email Forwarding
+          </th>
+          <td rowspan="2" class="table-border">
+            <%=( userSystemDataAndEmailIdTreatment.dateTillEmailIdToRemainActive
+            ?
+            formateDate(userSystemDataAndEmailIdTreatment.dateTillEmailIdToRemainActive):''
+            )%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            Date Till Email ID to remain Active
+          </th>
+          <td class="table-border">
+            <%=userSystemDataAndEmailIdTreatment.endUserConfirmatinoOnEmailForwarding%>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">UAM Approvals</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="table-border"></td>
+          <th class="table-border">Name</th>
+          <th class="table-border">Signature</th>
+          <th class="table-border">Approval Date (DD-MMM-YYYY)</th>
+        </tr>
+        <tr>
+          <th class="table-border">Requested By</th>
+          <td class="table-border">
+            <%= `${uamApprovals?.requestedBy?.user?.firstName}
+            ${uamApprovals?.requestedBy?.user?.lastName}`||'' %>
+          </td>
+          <td class="table-border"><%=uamApprovals.requestedBy.signature%></td>
+          <td class="table-border">
+            <%=( uamApprovals.requestedBy.approvalDate?
+            formateDate(uamApprovals.requestedBy.approvalDate) :'' )%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            Head of Department / Designee
+          </th>
+          <td class="table-border">
+            <%= `${uamApprovals?.headOfDepartmentDesignee?.user?.firstName}
+            ${uamApprovals?.headOfDepartmentDesignee?.user?.lastName}`||'' %>
+          </td>
+          <td class="table-border">
+            <%=uamApprovals.headOfDepartmentDesignee.signature%>
+          </td>
+          <td class="table-border">
+            <%=( uamApprovals.headOfDepartmentDesignee.approvalDate ?
+            formateDate(uamApprovals.headOfDepartmentDesignee.approvalDate):''
+            )%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            IT Head / Designee (Mandatory in case of Email Forwarding)
+          </th>
+          <td class="table-border">
+            <%= `${uamApprovals?.itHeadDesignee?.user?.firstName}
+            ${uamApprovals?.itHeadDesignee?.user?.lastName}`||'' %>
+          </td>
+          <td class="table-border">
+            <%=uamApprovals.itHeadDesignee.signature%>
+          </td>
+          <td class="table-border">
+            <%=( uamApprovals.itHeadDesignee.approvalDate ?
+            formateDate(uamApprovals.itHeadDesignee.approvalDate):'' )%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">
+            DPO/Designee (Mandatory in case of Email Forwarding)
+          </th>
+          <td class="table-border">
+            <%= `${uamApprovals?.dpoDesignee?.user?.firstName}
+            ${uamApprovals?.dpoDesignee?.user?.lastName}`||'' %>
+          </td>
+          <td class="table-border"><%=uamApprovals.dpoDesignee.signature%></td>
+          <td class="table-border">
+            <%=( uamApprovals.dpoDesignee.approvalDate ?
+            formateDate(uamApprovals.dpoDesignee.approvalDate):'' )%>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="4" class="table-border">
+            <h2 class="text-center">For IT Department Use Only</h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th class="field-title table-border">
+            Active Directory Account Deactivation Date
+          </th>
+          <td class="table-border">
+            <%=( forITDepartmentUseOnly.activeDirectoryAccountDeactivationDate?
+            formateDate(forITDepartmentUseOnly.activeDirectoryAccountDeactivationDate):''
+            )%>
+          </td>
+          <th class="field-title table-border">
+            Active Directory Account Deletion Date
+          </th>
+          <td class="table-border">
+            <%=( forITDepartmentUseOnly.activeDirectoryAccountDeletionDate?
+            formateDate(forITDepartmentUseOnly.activeDirectoryAccountDeletionDate):''
+            )%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Comments (if any)</th>
+          <td colspan="3" class="table-border">
+            <%=forITDepartmentUseOnly.comments%>
+          </td>
+        </tr>
+        <tr>
+          <td class="field-title table-border"></td>
+          <th class="table-border">Printed Name</th>
+          <th class="table-border">Signature</th>
+          <th class="table-border">Date (DD-MMM-YYYY)</th>
+        </tr>
+        <tr>
+          <th rowspan="2" class="field-title table-border">
+            Executed By (Server Administrator / Designee)
+          </th>
+          <%if(forITDepartmentUseOnly.executedBy.length) {%>
+          <td class="table-border">
+            <%= `${forITDepartmentUseOnly.executedBy[0]?.user?.firstName}
+            ${forITDepartmentUseOnly.executedBy[0]?.user?.lastName}`||'' %>
+          </td>
+          <td class="table-border">
+            <%=forITDepartmentUseOnly.executedBy[0].signature%>
+          </td>
+          <td class="table-border">
+            <%=( forITDepartmentUseOnly.executedBy[0].date?
+            formateDate(forITDepartmentUseOnly.executedBy[0].date):'' )%>
+          </td>
+          <%};%>
+        </tr>
+        <%forITDepartmentUseOnly.executedBy.forEach((element, index) => {%>
+        <%if(index > 0){%>
+        <tr>
+          <td class="table-border">
+            <%= `${element?.user?.firstName} ${element?.user?.lastName}`||'' %>
+          </td>
+          <td class="table-border"><%=element.signature%></td>
+          <td class="table-border">
+            <%=( element.date? formateDate(element.date):'' )%>
+          </td>
+        </tr>
+        <%}%> <%});%>
+      </tbody>
+    </table>
+
+    <% if(userInformation?.users && userInformation?.users.length){%>
+    <table class="table-margin" width="100%">
+      <thead>
+        <tr class="table-heading">
+          <th colspan="9" class="table-border">
+            <h2 class="text-center">
+              In case of Common Request Type for Multiple Users
+            </h2>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr>
+          <th class="table-border">Sr No.</th>
+          <th class="table-border">Name</th>
+          <th class="table-border">Department</th>
+          <th class="table-border">Designation</th>
+          <th class="table-border">Location</th>
+          <th class="table-border">Access Type</th>
+          <th class="table-border">Email Id</th>
+          <th class="table-border">Remarks</th>
+          <th class="table-border">Type of User</th>
+        </tr> -->
+
+        <%userInformation?.users.forEach((user, index) => {%>
+        <tr>
+          <th rowspan="4" class="table-border"><%=index+1%></th>
+
+          <th class="field-title table-border">Name</th>
+          <td class="table-border">
+            <%=`${user?.firstName} ${user?.lastName}`||''%>
+          </td>
+
+          <th class="field-title table-border">Department</th>
+          <td class="table-border">
+            <%=user?.department && user?.department?.name||''%>
+          </td>
+        </tr>
+        <tr>
+          <th class="field-title table-border">Designation</th>
+          <td class="table-border"><%=user?.designation||''%></td>
+
+          <th class="field-title table-border">Location</th>
+          <td class="table-border"><%=user?.location||''%></td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">Access Type</th>
+          <td class="table-border"><%=user?.accessTypeGrantRevoke||''%></td>
+
+          <th class="field-title table-border">Email</th>
+          <td class="table-border"><%=user?.email||''%></td>
+        </tr>
+
+        <tr>
+          <th class="field-title table-border">Type of User</th>
+          <td class="table-border"><%=user?.typeOfUser||''%></td>
+          <th class="field-title table-border">Remarks</th>
+          <td class="table-border"><%=user?.remarks||''%></td>
+        </tr>
+        <% })%>
+      </tbody>
+    </table>
+    <%}%>
+  </body>
+</html>

@@ -1,0 +1,98 @@
+{
+  "requestTypeAction": "Create|Modify|Delete|Deactivate",
+  "userInformation": {
+    "users": [
+      {
+        "uamNo": "UAM_BADAL",
+        "actionType": "",
+        "userId": "ksdfksajdbfkasd"
+      },
+      {
+        "uamNo": "UAM_GOVIND",
+        "actionType": "",
+        "userId": "ksdfksajdbfkasdgondin"
+      }
+    ],
+    "dateOfRequest": "2022-01-03",
+    "dateOfJoiningLeaving": "2022-01-03",
+    "typeOfAccessRequired": "permanent|temporary",
+    "ifTemporaryDateForDeactivation": "2022-01-03",
+    "typeOfUser": "ApcerUser|ApcerClientEmp|Other",
+    "typeOfUserOtherText": "Other",
+    "designation": "manager",
+    "department": "department",
+    "networkServicesToBeGrantedRevoked": {
+      "emailAccess": true,
+      "serverAccess": false,
+      "sharedDrive/folderAccess": true,
+      "APCERNetworkVPNAccess": false,
+      "others": true
+    },
+    "reportingManagerName": "vishal",
+    "accessToDistributionList": true,
+    "comments": "It is optional"
+  },
+  "accessToShareDrives": [
+    {
+      "driveName": "Google",
+      "folderName": "APCER",
+      "accessRights": "ReadOnly|ReadWrite",
+      "grantRevoke": "Grant|Revoke"
+    },
+    {
+      "driveName": "OneDrive",
+      "folderName": "APCEROneDrive",
+      "accessRights": "ReadOnly|ReadWrite",
+      "grantRevoke": "Grant|Revoke"
+    }
+  ],
+  "userSystemDataAndEmailIdTreatment": {
+    "userSystemData": "NotRequired|Archive|Handover",
+    "dataHandOverTo": "",
+    "endUserConfirmationOnReceiptOfData": "",
+    "emailMailboxTransferredTo": "",
+    "endUserConfirmationOnActivationOfMailbox": "",
+    "emailIdForwardedTo": "",
+    "dateTillEmailIdToRemainActive": "2022-01-03",
+    "endUserConfirmatinoOnEmailForwarding": ""
+  },
+  "uamApprovals": {
+    "requestedBy": {
+      "name": "govind",
+      "signature": "",
+      "approvalDate": "2022-01-03"
+    },
+    "headOfDepartmentDesignee": {
+      "name": "govind",
+      "signature": "",
+      "approvalDate": "2022-01-03"
+    },
+    "itHeadDesignee": {
+      "name": "govind",
+      "signature": "",
+      "approvalDate": "2022-01-03"
+    },
+    "dpoDesignee": {
+      "name": "govind",
+      "signature": "",
+      "approvalDate": "2022-01-03"
+    }
+  },
+  "forITDepartmentUseOnly": {
+    "activeDirectoryAccountDeactivationDate": "2022-01-03",
+    "activeDirectoryAccountDeletionDate": "2022-01-03",
+    "comments": "It is optional",
+    "executedBy": [
+      {
+        "printedName": "govind",
+        "signature": "",
+        "date": "2022-01-03"
+      },
+      {
+        "printedName": "vishal",
+        "signature": "",
+        "date": "2022-01-03"
+      }
+    ]
+  }
+}
